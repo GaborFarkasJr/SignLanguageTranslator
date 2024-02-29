@@ -4,3 +4,6 @@
 [submodule "AlphaPose"]
 	path = AlphaPose
 	url = https://github.com/MVIG-SJTU/AlphaPose
+[submodule "CorrNet"]
+	path = CorrNet
+	url = https://github.com/hulianyuyy/CorrNet
