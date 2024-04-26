@@ -1,7 +1,7 @@
 from video_classifier import *
 from my_utils import *
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model_path = "model_checkpoints/Resnet_3333_30fps_122res/9e_Resnet_3333_30fps_122res.pt"
+model_path = "final_model/Resnet_3333_30fps_122res/9e_Resnet_3333_30fps_122res.pt"
 
 
 class model_instance():

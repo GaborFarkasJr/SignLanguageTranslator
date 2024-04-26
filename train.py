@@ -63,10 +63,6 @@ if __name__ == "__main__":
     onehot_encoder.fit_categories(glossary)
     
     
-    # Data Augmentation
-    video_rotation = VideoRotate(0, 0)
-    aug = transforms.Compose([video_rotation])
-    
     # Train data
     train_df = lookup_df.loc[lookup_df['split'].isin(['train', 'val'])]
     train_df = train_df.loc[train_df['gloss'].isin(glossary)]      
