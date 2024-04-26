@@ -17,6 +17,48 @@ This is a sign language recognition (more specifically classification) project t
 - `video_classifier.py` - Contains the 3D ResNet implementation used for this project.
 - `VideoLookupDataset.py` - Fetches the Preprocessed videos and adds labels for training and testing.
 ## File Structure
+```
+│   add_glossary.py
+│   classifier_preprocessing.py
+│   CustomOneHot.py
+│   draw_skeleton.py
+│   model_instance.py
+│   my_utils.py
+│   README.md
+│   sign_recogniser_interactive.py
+│   train.py
+│   training_log_analysis.ipynb
+│   VideoLookupDataset.py
+│   video_classifier.py
+│
+├───dataset
+│   │   create_lookup.py
+│   │   LSA64_lookup.csv
+│   │
+│   ├───processed
+│   │       001_001_001.mp4
+|   |       ...
+│   │
+│   └───videos
+│   │       001_001_001.mp4
+|   |       ...
+|   |
+├───final_model
+│   └───Resnet_3333_30fps_122res
+│           9e_Resnet_3333_30fps_122res.pt
+│           log.csv
+│
+└───pose_estimation
+    └───scripts
+            api_test.py
+            pose_api.py
+```
+`dataset/videos` only needed when pre-processing. Otherwise, the training will only the `dataset/processed`, which can be downloaded in the next section.
 ## Files to Install
+- Final model via <a href="https://drive.google.com/file/d/1-JikMiyT7U7OwS8DmUZHkEaJJWLxiw9D/view?usp=sharing">Google Drive</a>
+- Pre-processed videos via <a href="https://drive.google.com/file/d/16lb2ysbMgvH3-vl5vO4K_HMl3KNyF8xK/view?usp=sharing">Google Drive</a>
+- Original Videos used for training via <a href="https://facundoq.github.io/datasets/lsa64/">LSA64 website</a>
+- Lookup CSV
+
 ## Setup
 ## Attributions
