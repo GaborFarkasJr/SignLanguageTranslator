@@ -4,8 +4,8 @@ import pandas as pd
 if __name__ == "__main__":
     
     # Loading the datasets lookups
-    train_df = pd.read_csv("lsa64/LSA64_videos_train.csv", converters={'Video_name': str})
-    test_df = pd.read_csv("lsa64/LSA64_videos_test.csv", converters={'Video_name': str})
+    train_df = pd.read_csv("LSA64_videos_train.csv", converters={'Video_name': str})
+    test_df = pd.read_csv("LSA64_videos_test.csv", converters={'Video_name': str})
     
     # Adding split information
     train_df.insert(1, "split", "train")
