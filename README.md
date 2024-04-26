@@ -78,4 +78,35 @@ If you are using a GPU to run the application, check the version of CUDA and CUD
 - `LSA64_videos_test.csv` and `LSA64_videos_train.csv` CSV files used in `dataset/create_lookup.py` from <a href="https://www.kaggle.com/code/marcmarais/lsa64-signer-independence-inceptionv3-rnn/input">Kaggle</a>
 
 ## Setup
+The project is already set up in a way that allows the model to be run and used once the files are installed and placed in the correct locations as indicated above. However, If you wish to create the model from scratch or make changes you can do that as well.
+### pre-processing
+1. Download the LSA64 videos and place them in `dataset/videos`.
+2. Download the `LSA64_videos_test.csv` and `LSA64_videos_train.csv` files and place them in `dataset/`.
+3. To set up the lookup table, run `create_lookup.py`.
+4. To create the preprocessed videos, run `classifier_preprocessing.py`. This step might take quite a few hours, so it will be available to download. The preprocessed videos are 244 x 244 and 60 fps (although rendered video might be 25fps).
+### Training
+**It is important to note that during training, the videos are resized to 144 x 144 and every other frame is taken to mimmic a 30fps video. If a different dataset is used, make sure `my_utils.py` is checked out**.
+1. Make sure that the file structure matches the one stated above. If changes were made, make sure that the files are accessed properly.
+2. Run `test.py` to train the model. If you do `python test.py --help`, there will be several options for hyperparameters. alternatively, default values are already set up and can just be run on its own.
+### Post-processing
+1. Make a note of where the saved model is stored and the lookup csv file.
+2. Run `add_glossary.py` to add the glossary. For modre details, use `python add_glossary.py --help`.
+3. After adding the glossary terms, rearrange the files so that it matches the above.
+4. Alternatively, you can change the **model_path** variable within `model_instance.py` to point towards the .pt model file with the glossary terms added.
+### running the application
+1. Make sure a web camera is connected, since the interactive applicaiton is only designed for it.
+2. Check to see if the file structure matches the above. If you have modified `model_instance.py`, make sure that the file points to the correct direction.
+3. Run `sign_recogniser_interactive.py`.
+4. Play around with the buffer size and the min-confidence sliders for different effects.
 ## Attributions
+The LSA64 dataset which can be found <a href="https://facundoq.github.io/datasets/lsa64/">here</a>.
+```
+@Article{Ronchetti2016,
+author="Ronchetti, Franco and Quiroga, Facundo and Estrebou, Cesar and Lanzarini, Laura and Rosete, Alejandro",
+title="LSA64: A Dataset of Argentinian Sign Language",
+journal="XX II Congreso Argentino de Ciencias de la Computación (CACIC)",
+year="2016"
+}
+```
+The two seprated lookup csv files for the training and testing were from Mark Marais's <a href="https://www.kaggle.com/code/marcmarais/lsa64-signer-independence-inceptionv3-rnn/input">Kaggle Project</a> <br>
+Mediapie's <a href="https://github.com/google/mediapipe">Github page</a> and <a href="https://developers.google.com/mediapipe">webpage</a>
