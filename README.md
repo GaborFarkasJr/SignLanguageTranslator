@@ -99,7 +99,7 @@ The project is already set up in a way that allows the model to be run and used 
 3. Run `sign_recogniser_interactive.py`.
 4. Play around with the buffer size and the min-confidence sliders for different effects.
 ## Attributions
-The LSA64 dataset which can be found <a href="https://facundoq.github.io/datasets/lsa64/">here</a>.
+- The LSA64 dataset which can be found <a href="https://facundoq.github.io/datasets/lsa64/">here</a>.
 ```
 @Article{Ronchetti2016,
 author="Ronchetti, Franco and Quiroga, Facundo and Estrebou, Cesar and Lanzarini, Laura and Rosete, Alejandro",
@@ -108,5 +108,5 @@ journal="XX II Congreso Argentino de Ciencias de la Computación (CACIC)",
 year="2016"
 }
 ```
-The two seprated lookup csv files for the training and testing were from Mark Marais's <a href="https://www.kaggle.com/code/marcmarais/lsa64-signer-independence-inceptionv3-rnn/input">Kaggle Project</a> <br>
-Mediapie's <a href="https://github.com/google/mediapipe">Github page</a> and <a href="https://developers.google.com/mediapipe">webpage</a>
+- The two seprated lookup csv files for the training and testing were from Mark Marais's <a href="https://www.kaggle.com/code/marcmarais/lsa64-signer-independence-inceptionv3-rnn/input">Kaggle Project</a>
+- Mediapie's <a href="https://github.com/google/mediapipe">Github page</a> and <a href="https://developers.google.com/mediapipe">webpage</a>
