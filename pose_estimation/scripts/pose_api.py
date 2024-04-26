@@ -1,25 +1,25 @@
 import mediapipe as mp
-from numpy import pad
 
 class PoseApi:
     
     def __init__(self) -> None:
         pass
     
-    # Setting up with default values
+    # Setting up with default values    
     
     mp_hands = mp.solutions.hands.Hands(
-        min_detection_confidence = 0.25,
-        min_tracking_confidence = 0.5
+        min_detection_confidence = 0.5,
+        min_tracking_confidence = 0.3,
+        model_complexity = 1,
     )
     mp_face = mp.solutions.face_mesh.FaceMesh(
         min_detection_confidence = 0.5,
-        min_tracking_confidence = 0.8
+        min_tracking_confidence = 0.5,
     )
     mp_pose = mp.solutions.pose.Pose(
-        min_detection_confidence = 0.25,
-        min_tracking_confidence = 0.5
-        
+        min_detection_confidence = 0.5,
+        min_tracking_confidence = 0.5,
+        model_complexity = 1,
     )
     
     mp_drawing = mp.solutions.drawing_utils
@@ -50,9 +50,9 @@ class PoseApi:
                     image = rgb_image,
                     landmark_list = hand_landmarks,
                     connections = mp.solutions.hands.HAND_CONNECTIONS,
-                    landmark_drawing_spec = self.mp_drawing_styles.get_default_hand_landmarks_style(),
-                    connection_drawing_spec = self.mp_drawing_styles.get_default_hand_connections_style())
-    
+                    landmark_drawing_spec = None,
+                    connection_drawing_spec = self.mp_drawing.DrawingSpec(color=(255, 255, 255), thickness=2, circle_radius=2)
+                )
     # Draw the face_mesh and landmarks into a provided image
     def draw_face_landmarks(self, rgb_image, process_results):
         if process_results.multi_face_landmarks:
@@ -69,8 +69,9 @@ class PoseApi:
                     landmark_list = face_landmarks,
                     connections = mp.solutions.face_mesh.FACEMESH_CONTOURS,
                     landmark_drawing_spec = None,
-                    connection_drawing_spec = self.mp_drawing_styles.get_default_face_mesh_contours_style()
-                )
+                    # connection_drawing_spec = self.mp_drawing_styles.get_default_face_mesh_contours_style()
+                    connection_drawing_spec = self.mp_drawing.DrawingSpec(color=(255, 255, 255), thickness=2, circle_radius=2)
+                 )
                 # self.mp_drawing.draw_landmarks(
                 #     image = rgb_image,
                 #     landmark_list = face_landmarks,
@@ -85,7 +86,7 @@ class PoseApi:
                 image = rgb_image,
                 landmark_list = process_results.pose_landmarks,
                 connections = mp.solutions.pose.POSE_CONNECTIONS,
-                landmark_drawing_spec = self.mp_drawing_styles.get_default_pose_landmarks_style(),
+                landmark_drawing_spec = None,
                 connection_drawing_spec = self.mp_drawing.DrawingSpec(color=(255, 255, 255), thickness=2, circle_radius=2)
             )
                 

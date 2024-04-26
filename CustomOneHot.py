@@ -1,4 +1,4 @@
-from sklearn.preprocessing import OneHotEncoder, LabelEncoder
+from sklearn.preprocessing import OneHotEncoder
 import numpy as np
 
 class OneHot():
